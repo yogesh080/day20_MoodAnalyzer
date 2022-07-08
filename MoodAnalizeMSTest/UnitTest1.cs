@@ -17,5 +17,23 @@ namespace MoodAnalizeMSTest
 
             Assert.AreEqual(expected, mood);
         }
+
+        [TestMethod]
+        //[DataRow("I am in HAPPY mood")]
+        [DataRow(null)]
+
+        public void GivenHappyMoodShouldReturnHappy(string message)
+        {
+            //arrenge
+            string expected = "HAPPY";
+            MoodAnalizers moodAnalizer = new MoodAnalizers(message);
+
+            //act
+            string mood = moodAnalizer.AnalizeMood();
+            //assert
+            Assert.AreEqual(expected, mood);
+
+        }
+
     }
 }
