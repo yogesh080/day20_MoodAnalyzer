@@ -39,41 +39,8 @@ namespace MoodAnalizeMSTest
 
         }
 
-        //TC 3.2
-        [TestMethod]
-        public void Given_Empty_should_throw_MoodAnalysisException_EmptyMood()
-        {
-            try
-            {
-                string message = "";
-                MoodAnalizers moodAnalizer = new MoodAnalizers(message);
-                string actual_Output = moodAnalizer.AnalizeMood();
-
-
-            }
-            catch (MoodAnalizersException e)
-            {
-                Assert.AreEqual("mood Should not be empty",e.Message);
-            }
-        }
-        //Tc 3.1
-        [TestMethod]
-        public void Given_null_should_throw_moodAnalysisExceotion()
-        {
-            try
-            {
-                string message = null;
-                MoodAnalizers moodAnalizer = new MoodAnalizers(message);
-                string actual_Output = moodAnalizer.AnalizeMood();
-
-
-            }
-            catch (MoodAnalizersException e)
-            {
-                Assert.AreEqual("mood Should not be null", e.Message);
-            }
-
-        }
+       
+        
 
     }
 }
