@@ -17,13 +17,26 @@ namespace MoodAnalizer
         }
         public string AnalizeMood()
         {
-            if (this.message.Contains("SAD"))
+            try
             {
-                return "SAD";
+                if (this.message.Equals(String.Empty))
+                {
+                    throw new MoodAnalizersException(MoodAnalizersException.ExceptionType.NULL_MESSAGE, "Mood should not be empty");
+                }
+                if (this.message.Contains("Sad"))
+                {
+                    return "SAD";
+                }
+                else
+                {
+                    return "HAPPY";
+                }
+
             }
-            else
+            catch(NullReferenceException)
             {
-                return "Happy";
+                throw new MoodAnalizersException(MoodAnalizersException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
+
             }
 
         }
